@@ -59,11 +59,16 @@ public class TestBase {
     }
 
     public boolean isLogged(){
-        return false;
-    }
-
-    public void logout(){
+        return isElementPresent(By.xpath("//button[text()='Sign Out']"));
 
     }
+
+    public void logOut(){
+        WebElement signOutButton = wd.findElement(By.xpath("//button"));
+        if (signOutButton.getText().equals("Sign Out")) {
+            click(By.xpath("//button"));
+        }
+    }
+
 }
 

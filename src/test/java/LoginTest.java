@@ -19,33 +19,33 @@ public class LoginTest extends TestBase{
     }
 
     @Test
-    public void loginPositiveTest(){
-        // open login/reg form
-        WebElement loginBtn = wd.findElement(By.xpath("//a[text()='LOGIN']"));
-        loginBtn.click();
-        // fill login/reg form
+    public void loginPositiveTest() {
+        //open login/reg form
+        WebElement loginBTn = wd.findElement(By.xpath("//a[text()='LOGIN']"));
+        loginBTn.click();
+        //fill login/reg form
         WebElement emailInput = wd.findElement(By.xpath("//input[1]"));
         emailInput.click();
         emailInput.clear();
-        emailInput.sendKeys("abc@def.com");
+        emailInput.sendKeys("Bobinsan20@yandex.ru");
 
         WebElement passInput = wd.findElement(By.xpath("//input[2]"));
         passInput.click();
         passInput.clear();
-        passInput.sendKeys("$Abcdef12345");
+        passInput.sendKeys("Bob_12345");
 
-        // click on Login button
+        //click on Login button
         wd.findElement(By.xpath("//button[1]")).click();
 
-        // Assert
-//        pause(3);
-        Assert.assertTrue(wd.findElement(By.xpath("//a[@href='/add']"))!=null);
+        //Assert
+        pause(3);
+        Assert.assertTrue(wd.findElement(By.xpath("//a[@href='/add']")) != null); //нужно сделать задержку
+
 
     }
 
     @AfterMethod
-    public void tearDown(){
-//        wd.quit();
+    public void tearDown() {
+        //  wd.quit();
     }
-
 }

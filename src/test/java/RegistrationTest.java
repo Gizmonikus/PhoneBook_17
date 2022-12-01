@@ -10,7 +10,7 @@ public class RegistrationTest extends TestBase {
     @BeforeMethod
     public void preCondition(){
         if(isLogged()){
-            logout();
+            logOut();
         }
     }
 
