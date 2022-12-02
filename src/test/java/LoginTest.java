@@ -14,7 +14,7 @@ public class LoginTest extends TestBase{
     @BeforeMethod
     public void init(){
         wd = new ChromeDriver();
-        wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
+        wd.navigate().to("https://telranedu.web.app/");
 
     }
 
@@ -27,7 +27,7 @@ public class LoginTest extends TestBase{
         WebElement emailInput = wd.findElement(By.xpath("//input[1]"));
         emailInput.click();
         emailInput.clear();
-        emailInput.sendKeys("Bobinsan20@yandex.ru");
+        emailInput.sendKeys("Bobinsan20@yandex.com");
 
         WebElement passInput = wd.findElement(By.xpath("//input[2]"));
         passInput.click();

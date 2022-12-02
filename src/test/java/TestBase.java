@@ -16,7 +16,7 @@ public class TestBase {
     @BeforeSuite
     public void init(){
         wd = new ChromeDriver();
-        wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
+        wd.navigate().to("https://telranedu.web.app/login");//новый сайт
     }
 
     @AfterSuite
@@ -64,11 +64,11 @@ public class TestBase {
     }
 
     public void logOut(){
-        WebElement signOutButton = wd.findElement(By.xpath("//button"));
-        if (signOutButton.getText().equals("Sign Out")) {
+//        WebElement signOutButton = wd.findElement(By.xpath("//button"));
+//        if (signOutButton.getText().equals("Sign Out")) {
             click(By.xpath("//button"));
         }
     }
 
-}
+//}
 

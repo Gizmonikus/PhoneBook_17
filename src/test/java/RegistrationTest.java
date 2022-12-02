@@ -24,7 +24,7 @@ public class RegistrationTest extends TestBase {
         openLoginRegistrationForm();
         fillLoginRegistrationForm(email, password);
         submitRegistration();
-        pause(3);
+        pause(15);
         Assert.assertTrue(isElementPresent(By.xpath("//button")));
     }
 
