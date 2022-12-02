@@ -1,3 +1,4 @@
+import manager.ApplicationManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,65 +11,64 @@ import org.testng.annotations.BeforeSuite;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
+public static ApplicationManager app = new ApplicationManager();
 
-    WebDriver wd;
+//    WebDriver wd;
 
     @BeforeSuite
-    public void init(){
-        wd = new ChromeDriver();
-        wd.navigate().to("https://telranedu.web.app/login");//новый сайт
+    public void setUp(){
+        app.init();
     }
 
     @AfterSuite
-    public void tearDown(){
-//        wd.quit();
+    public void tearDown() {
+        app.stop();
     }
+//    public void pause(int time){
+//        wd.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+//    }
+//    public void click(By locator){
+//        wd.findElement(locator).click();
+//    }
 
-    public void pause(int time){
-        wd.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
-    }
-    public void click(By locator){
-        wd.findElement(locator).click();
-    }
+//    public void type(By locator, String text){
+//        WebElement element = wd.findElement(locator);
+//        element.click();
+//        element.clear();
+//        element.sendKeys(text);
+//    }
 
-    public void type(By locator, String text){
-        WebElement element = wd.findElement(locator);
-        element.click();
-        element.clear();
-        element.sendKeys(text);
-    }
+//    public void openLoginRegistrationForm(){
+//       click(By.xpath("//a[text()='LOGIN']"));
+//    }
+//
+//    public void fillLoginRegistrationForm(String email, String password){
+//        type(By.xpath("//input[1]"), email);
+//        type(By.xpath("//input[2]"), password);
+//    }
 
-    public void openLoginRegistrationForm(){
-       click(By.xpath("//a[text()='LOGIN']"));
-    }
+//    public void submitLogin(){
+//        click(By.xpath("//button[1]"));
+//    }
+//    public void submitRegistration(){
+//        click(By.xpath("//button[2]"));
+//    }
 
-    public void fillLoginRegistrationForm(String email, String password){
-        type(By.xpath("//input[1]"), email);
-        type(By.xpath("//input[2]"), password);
-    }
+//    public boolean isElementPresent(By locator){
+//        return wd.findElements(locator).size() > 0;
+//    }
 
-    public void submitLogin(){
-        click(By.xpath("//button[1]"));
-    }
-    public void submitRegistration(){
-        click(By.xpath("//button[2]"));
-    }
+//    public boolean isLogged(){
+//        return isElementPresent(By.xpath("//button[text()='Sign Out']"));
+//
+//    }
+//
+//    public void logOut(){
+////        WebElement signOutButton = wd.findElement(By.xpath("//button"));
+////        if (signOutButton.getText().equals("Sign Out")) {
+//            click(By.xpath("//button"));
+//        }
+//    }
 
-    public boolean isElementPresent(By locator){
-        return wd.findElements(locator).size() > 0;
-    }
-
-    public boolean isLogged(){
-        return isElementPresent(By.xpath("//button[text()='Sign Out']"));
-
-    }
-
-    public void logOut(){
-//        WebElement signOutButton = wd.findElement(By.xpath("//button"));
-//        if (signOutButton.getText().equals("Sign Out")) {
-            click(By.xpath("//button"));
-        }
-    }
-
-//}
+}
 

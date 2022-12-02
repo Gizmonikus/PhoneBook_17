@@ -38,7 +38,7 @@ public class LoginTest extends TestBase{
         wd.findElement(By.xpath("//button[1]")).click();
 
         //Assert
-        pause(3);
+        app.getUser().pause(3);
         Assert.assertTrue(wd.findElement(By.xpath("//a[@href='/add']")) != null); //нужно сделать задержку
 
 
