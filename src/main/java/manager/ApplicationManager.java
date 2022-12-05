@@ -12,13 +12,13 @@ public class ApplicationManager {
         return user;
     }
 
-    public void init(){
+    public void init() {
         wd = new ChromeDriver();
-        wd.navigate().to("https://telranedu.web.app/login");//новый сайт
+        wd.navigate().to("https://telranedu.web.app/home");//новый сайт
         user = new HelperUser(wd);
     }
 
-    public void stop(){
+    public void stop() {
 //        wd.quit();
     }
 

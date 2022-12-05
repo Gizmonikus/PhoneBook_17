@@ -9,8 +9,8 @@ public class RegistrationTest extends TestBase {
 //
 
     @BeforeMethod
-    public void preCondition(){
-        if(app.getUser().isLogged()){
+    public void preCondition() {
+        if (app.getUser().isLogged()) {
             app.getUser().logOut();
         }
     }

@@ -11,12 +11,12 @@ import org.testng.annotations.BeforeSuite;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
-public static ApplicationManager app = new ApplicationManager();
+    public static ApplicationManager app = new ApplicationManager();
 
 //    WebDriver wd;
 
     @BeforeSuite
-    public void setUp(){
+    public void setUp() {
         app.init();
     }
 
