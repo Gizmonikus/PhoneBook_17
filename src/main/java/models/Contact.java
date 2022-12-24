@@ -10,9 +10,13 @@ import lombok.ToString;
 @Builder
 @ToString
 
-public class User {
+public class Contact {
 
+    String name;
+    String lastName;
+    String phone;
     String email;
-    String password;
+    String address;
+    String description;
 
 }
