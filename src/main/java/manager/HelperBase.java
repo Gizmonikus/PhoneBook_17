@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.concurrent.TimeUnit;
-
 public class HelperBase {
 
     WebDriver wd;
@@ -30,11 +28,17 @@ public class HelperBase {
     }
 
     public void pause(int time){
-        wd.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+//        wd.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-public String getText(By locator){
+    public String getText(By locator){
         return wd.findElement(locator).getText();
+    }
 }
 
-}
+

@@ -1,11 +1,12 @@
 import models.User;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class RemoveContactTest extends TestBase{
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void preCondition(){
         if(!app.getUser().isLogged()){
             app.getUser().login(User.builder()
@@ -15,7 +16,7 @@ public class RemoveContactTest extends TestBase{
         }
     }
 
-    @Test
+    @Test(groups = {"positivegroup", "smokegroup"})
     public void removeOneContactPositive(){
 
         int result = app.getContact().removeOneContact();
@@ -25,7 +26,8 @@ public class RemoveContactTest extends TestBase{
 
     @Test
     public void removeAllContactsPositive(){
-//        app.getContact().removeAllContacts();
+        app.getContact().removeAllContacts();
+        Assert.assertFalse(app.getContact().isElementPresent(By.cssSelector(".contact-item_card__2SOIM")));
     }
 
 }

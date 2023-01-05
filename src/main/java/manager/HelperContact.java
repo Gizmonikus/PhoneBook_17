@@ -31,15 +31,14 @@ public class HelperContact extends HelperBase {
         click(By.xpath("//div[@class='add_form__2rsm2']//button"));
     }
 
-    public void isContactCreated(){
-
-    }
 
     public int removeOneContact() {
+        pause(3000);
         int countBefore = countOfContacts();
         logger.info("Number of contacts before is " + countBefore);
         String phone = wd.findElement(By.cssSelector(".contact-item_card__2SOIM h3")).getText();
         logger.info("The deleted number is " + phone);
+        pause(3000);
         click(By.cssSelector(".contact-item_card__2SOIM"));
         click(By.xpath("//button[.='Remove']"));
         pause(3000);
@@ -51,5 +50,13 @@ public class HelperContact extends HelperBase {
 
     private int countOfContacts() {
         return wd.findElements(By.cssSelector(".contact-item_card__2SOIM")).size();
+    }
+
+
+    public void removeAllContacts() {
+        pause(3000);
+        while(wd.findElements(By.cssSelector(".contact-item_card__2SOIM")).size()!=0){
+            removeOneContact();
+        }
     }
 }
